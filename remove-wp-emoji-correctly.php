@@ -42,7 +42,7 @@ final class Remove_WPEmoji_Correctly {
     /** Private constructor to prevent direct instantiation. */
     private function __construct() {/** There is nothing here. */}
 
-    public function init () {
+    public function init() {
         /** Actions. */
         remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
         remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
