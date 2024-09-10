@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 
  * @link https://core.trac.wordpress.org/changeset/53904
  */
-if ( ! class_exists( 'Remove_WP_Emoji_Correctly' ) ) :
+if ( ! class_exists( 'Remove_WPEmoji_Correctly' ) ) :
 final class Remove_WPEmoji_Correctly {
 
     private static $instance = null;
