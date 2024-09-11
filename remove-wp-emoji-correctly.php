@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/default-filters.php
  * @link https://core.trac.wordpress.org/browser/tags/6.6/src/wp-includes/default-filters.php
  * 
- * Note: We no longer need to manually remove emoji_svg_url prefetch from wp_resource_hints since it's no longer included by default.
+ * We no longer need to manually remove emoji_svg_url prefetch from wp_resource_hints since it's no longer included by default.
  * 
  * @link https://core.trac.wordpress.org/changeset/53904
  */
@@ -31,7 +31,7 @@ final class Remove_WPEmoji_Correctly {
 
     private static $instance = null;
     
-    /** Make sure that there's only a single instance of the class. */
+    /** Make sure there's only one instance of the class. */
     public static function instance() {
         if ( null === self::$instance ) {
             self::$instance = new self();
@@ -71,11 +71,14 @@ final class Remove_WPEmoji_Correctly {
     }
 
     /**
-     * Will remove the default 'wpemoji' plugin inside TinyMCE editor.
+     * Filter 'wpemoji' plugin inside TinyMCE editor.
      * 
-     * Default plugins: 'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste',
-     * 'tabfocus', 'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
-     * 'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
+     * @param array $tiny_mce_plugins {
+     *      An array of default TinyMCE plugins:
+     *          'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
+     *          'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
+     *          'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
+     *      }
     */
     protected function remove_wpemoji_plugin( $tiny_mce_plugins ) {
         if ( is_array( $tiny_mce_plugins ) && in_array( 'wpemoji', $tiny_mce_plugins, true ) ) {
