@@ -73,12 +73,12 @@ final class Remove_WPEmoji_Correctly {
     /**
      * Filter 'wpemoji' plugin inside TinyMCE editor.
      * 
-     * @param array $tiny_mce_plugins {
-     *      An array of default TinyMCE plugins:
-     *          'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
-     *          'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
-     *          'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
-     *      }
+     * @param   array   $tiny_mce_plugins {
+     *          List of default TinyMCE plugins:
+     *              'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
+     *              'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
+     *              'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
+     *          }
     */
     protected function remove_wpemoji_plugin( $tiny_mce_plugins ) {
         if ( is_array( $tiny_mce_plugins ) && in_array( 'wpemoji', $tiny_mce_plugins, true ) ) {
@@ -91,10 +91,8 @@ final class Remove_WPEmoji_Correctly {
 
 if ( is_admin() ) {
     add_action( 'admin_init', [ Remove_WPEmoji_Correctly::instance(), 'admin_init' ] );
-
-    return;
-}  
-
-add_action( 'init', [ Remove_WPEmoji_Correctly::instance(), 'init' ] );
+}  else {
+    add_action( 'init', [ Remove_WPEmoji_Correctly::instance(), 'init' ] );
+}
 
 endif;
