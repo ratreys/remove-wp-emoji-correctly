@@ -18,8 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * We can find the default filters here:
  * 
- * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/default-filters.php
- * @link https://core.trac.wordpress.org/browser/tags/6.6/src/wp-includes/default-filters.php
+ * @link wp-includes/default-filters.php
  * 
  * We no longer need to manually remove emoji_svg_url prefetch from wp_resource_hints since it's no longer included by default.
  * 
@@ -78,7 +77,7 @@ final class Remove_WPEmoji_Correctly {
      *      'wordpress',     'wpgallery',    'wpdialogs',   'tabfocus',    'charmap',    'wpemoji',
      *      'wplink',        'wpview',       'lists',       'media',       'paste',      'hr',
      * 
-     * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/class-wp-editor.php
+     * @link wp-includes/class-wp-editor.php starting line 421
      * 
     */
     public static function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
