@@ -10,8 +10,7 @@ Requires at least:  6.4
 Tested up to:       6.6
 Stable tag:         1.0.0
 Requires PHP:       7.4
-License:            GPLv2 or later
-License URI:        https://spdx.org/licenses/GPL-2.0-or-later.html
+License:            GPL-3.0
 
 This is the RIGHT WAY to remove or disable WordPress emoji that was added in v4.2.
 
