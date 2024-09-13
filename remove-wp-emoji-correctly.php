@@ -1,15 +1,14 @@
 <?php
 /**
- * Plugin Name:       Remove WordPress Emoji — Correctly
- * Plugin URI:        https://selftawt.com/disable-wp-emoji/
- * Description:       The right way to remove or disable WordPress emoji. Make your header clean, lean, and mean.
+ * Plugin Name:       Remove WP Emoji — Correctly
+ * Plugin URI:        https://selftawt.com/disable-wpemoji-correctly/
+ * Description:       The right way to remove or disable WordPress emoji added in v4.2. Make your header clean, lean, and mean.
  * Version:           1.0.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Rey Sanchez
  * Author URI:        https://selftawt.com/
- * License:           GPL-3.0-or-later
- * License URI:       https://spdx.org/licenses/GPL-3.0-or-later.html
+ * License:           GPL-3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -71,21 +70,21 @@ final class Remove_WPEmoji_Correctly {
     }
 
     /**
-     * Filter 'wpemoji' plugin inside TinyMCE editor.
+     * Filter out 'wpemoji' inside TinyMCE editor.
      * 
-     * @param   array   $tiny_mce_plugins {
+     * @param   array   $default_tiny_mce_plugins {
      *          List of default TinyMCE plugins:
      *              'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
      *              'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
      *              'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
      *          }
     */
-    protected function remove_wpemoji_plugin( $tiny_mce_plugins ) {
-        if ( is_array( $tiny_mce_plugins ) && in_array( 'wpemoji', $tiny_mce_plugins, true ) ) {
-            return array_diff( $tiny_mce_plugins, [ 'wpemoji' ] );
+    public function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
+        if ( is_array( $default_tiny_mce_plugins ) && in_array( 'wpemoji', $default_tiny_mce_plugins, true ) ) {
+            return array_diff( $default_tiny_mce_plugins, [ 'wpemoji' ] );
         }
 
-        return $tiny_mce_plugins;
+        return $default_tiny_mce_plugins;
     }
 }
 
