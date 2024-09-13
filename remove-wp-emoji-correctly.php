@@ -70,16 +70,16 @@ final class Remove_WPEmoji_Correctly {
     /**
      * Filter out 'wpemoji' inside TinyMCE editor.
      * 
-     * @param array $default_tiny_mce_plugins {
+     * @param array $default_tiny_mce_plugins
+     * 
      *      List of default TinyMCE plugins:
      * 
-     *      'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
-     *      'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
-     *      'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
+     *      'wptextpattern', 'wpautoresize', 'colorpicker', 'wpeditimage', 'fullscreen', 'textcolor',
+     *      'wordpress',     'wpgallery',    'wpdialogs',   'tabfocus',    'charmap',    'wpemoji',
+     *      'wplink',        'wpview',       'lists',       'media',       'paste',      'hr',
      * 
      * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/class-wp-editor.php
      * 
-     * }
     */
     public static function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
         if ( is_array( $default_tiny_mce_plugins ) && in_array( 'wpemoji', $default_tiny_mce_plugins, true ) ) {
