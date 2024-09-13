@@ -76,6 +76,9 @@ final class Remove_WPEmoji_Correctly {
      *      'charmap', 'colorpicker', 'hr', 'lists', 'media', 'paste', 'tabfocus',
      *      'textcolor', 'fullscreen', 'wordpress', 'wpautoresize', 'wpeditimage'
      *      'wpemoji', 'wpgallery', 'wplink', 'wpdialogs', 'wptextpattern', 'wpview'
+     * 
+     * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/class-wp-editor.php
+     * 
      * }
     */
     public static function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
