@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Default filters are found at wp-includes/default-filters.php
  * 
+ * @link https://core.trac.wordpress.org/browser/tags/6.6/src/wp-includes/default-filters.php
+ * 
  * We no longer need to manually remove emoji_svg_url prefetch from wp_resource_hints since it's no longer
  * included by default.
  * 
