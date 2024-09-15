@@ -1,4 +1,4 @@
-# Remove WordPress Emoji — Correctly
+## Remove WordPress Emoji — Correctly
 
 > Make your header clean, lean, and mean.
 
