@@ -1,6 +1,6 @@
 === Remove WP Emoji — Correctly ===
 
-Plugin Name:        Remove WP Emoji Correctly
+Plugin Name:        Remove WP Emoji — Correctly
 Plugin URI:         https://selftawt.com/disable-wpemoji-correctly/
 Author:             Rey Sanchez
 Author URI:         https://selftawt.com/
