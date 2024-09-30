@@ -6,6 +6,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // Don't run uninstall.php if another version of the plugin is active.
-if ( class_exists( 'Remove_WP_Emoji_Correctly' ) ) {
+if ( class_exists( 'SLFTWT_Remove_WP_Emoji_Correctly' ) ) {
     return;
 }
