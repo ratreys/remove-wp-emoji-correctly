@@ -5,7 +5,7 @@ Plugin URI:         https://selftawt.com/disable-wpemoji-correctly
 Author:             Rey Sanchez
 Author URI:         https://selftawt.com
 Contributors:       selftawt
-Tags:               emoji, wpemoji, disable, disable emoji, disable wpemoji
+Tags:               emojis, wpemojis, disable, disable emojis, disable wpemojis
 Requires at least:  6.4
 Tested up to:       6.7
 Stable tag:         1.0.0
@@ -22,6 +22,8 @@ Emoji support is now so widespread that this feature should no longer belong to 
 
 Simply activate this plugin to completely — and correctly — remove the built-in support for emojis that was added in WordPress v4.2.
 
+Here is [why I created this plugin](https://selftawt.com/disable-wpemoji-correctly/).
+
 **Features**
 
 * Built using WordPress API and standards.
@@ -31,17 +33,19 @@ Simply activate this plugin to completely — and correctly — remove the built
 
 == Frequently Asked Questions ==
 
-= What's different with this compared to other plugins? =
+= **What's different with this compared to other plugins?** =
 
 I encourage (actually, highly recommend) you to browse the source code and see it for yourself.
 
-= What's the goal? =
+TL;DR: Other plugins don't work.
+
+= **What's the goal?** =
 
 The goal is to update the code of this plugin until (hopefully) WordPress removes the emoji feature from its core.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Initial release.
 
 == Upgrade Notice ==
