@@ -28,7 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
-if ( ! class_exists( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly' ) ) :
 final class Remove_WP_Emoji_Correctly {
 
     private static $instance = null;
@@ -47,8 +46,8 @@ final class Remove_WP_Emoji_Correctly {
     public static function init() {
         /** Actions. */
         remove_action( 'wp_head',            'print_emoji_detection_script', 7 );
-        remove_action( 'wp_print_styles',    'print_emoji_styles' ); // Retained for backwards compatibility.
         remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+        remove_action( 'wp_print_styles',    'print_emoji_styles' ); // Retained for backwards compatibility.
 
         /** Prevent conversion of emoji to a static img element. */
         remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
@@ -63,8 +62,8 @@ final class Remove_WP_Emoji_Correctly {
     public static function admin_init() {
         /** Actions. */
         remove_action( 'admin_print_scripts',   'print_emoji_detection_script' );
-        remove_action( 'admin_print_styles',    'print_emoji_styles' ); // Retained for backwards compatibility.
         remove_action( 'admin_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+        remove_action( 'admin_print_styles',    'print_emoji_styles' ); // Retained for backwards compatibility.
 
         /** For those using classic editor. */
         add_filter( 'tiny_mce_plugins', array( __CLASS__, 'remove_wpemoji_plugin' ) );
@@ -97,5 +96,3 @@ if ( is_admin() ) {
 }  else {
     add_action( 'init', array( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly', 'init' ) );
 }
-
-endif;
