@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Remove WP Emoji — Correctly
+ * Plugin Name:       Remove WP Emojis — Correctly
  * Plugin URI:        https://selftawt.com/disable-wpemoji-correctly
  * Description:       The right way to remove or disable emoji support that was added in WordPress v4.2. Make your header clean, lean, and mean.
  * Version:           1.0.0
@@ -28,6 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
+if ( class_exists( 'Remove_WP_Emoji_Correctly' ) ):
 final class Remove_WP_Emoji_Correctly {
 
     private static $instance = null;
@@ -96,3 +97,5 @@ if ( is_admin() ) {
 }  else {
     add_action( 'init', array( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly', 'init' ) );
 }
+
+endif;
