@@ -45,6 +45,9 @@ The goal is to update the code of this plugin until (hopefully) WordPress remove
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix some naming convention for clarity.
+
 = 1.0.0 =
 * Initial release.
 
