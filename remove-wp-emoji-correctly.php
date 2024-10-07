@@ -11,6 +11,8 @@
  * License:           GPL-3.0
  */
 
+namespace Selftawt\RWPEC;
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -26,8 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
-if ( ! class_exists( 'SLFTWT_Remove_WP_Emoji_Correctly' ) ) :
-final class SLFTWT_Remove_WP_Emoji_Correctly {
+if ( ! class_exists( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly' ) ) :
+final class Remove_WP_Emoji_Correctly {
 
     private static $instance = null;
     
@@ -91,9 +93,9 @@ final class SLFTWT_Remove_WP_Emoji_Correctly {
 }
 
 if ( is_admin() ) {
-    add_action( 'admin_init', array( 'SLFTWT_Remove_WP_Emoji_Correctly', 'admin_init' ) );
+    add_action( 'admin_init', array( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly', 'admin_init' ) );
 }  else {
-    add_action( 'init', array( 'SLFTWT_Remove_WP_Emoji_Correctly', 'init' ) );
+    add_action( 'init', array( '\Selftawt\RWPEC\Remove_WP_Emoji_Correctly', 'init' ) );
 }
 
 endif;
