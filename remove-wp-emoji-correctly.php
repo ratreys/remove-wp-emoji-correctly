@@ -28,7 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
-if ( class_exists( 'Remove_WP_Emojis_Correctly' ) ):
 final class Remove_WP_Emojis_Correctly {
 
     private static $instance = null;
@@ -97,5 +96,3 @@ if ( is_admin() ) {
 }  else {
     add_action( 'init', array( '\Selftawt\RWPEC\Remove_WP_Emojis_Correctly', 'init' ) );
 }
-
-endif;
