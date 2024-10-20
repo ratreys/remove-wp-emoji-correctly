@@ -8,7 +8,7 @@ Contributors:       selftawt
 Tags:               emojis, wpemojis, disable, disable emojis, disable wpemojis
 Requires at least:  6.4
 Tested up to:       6.7
-Stable tag:         1.0.1
+Stable tag:         1.1.0
 Requires PHP:       7.4
 License:            GPL-3.0
 
@@ -33,25 +33,28 @@ Here is [why I created this plugin](https://selftawt.com/disable-wpemoji-correct
 
 == Frequently Asked Questions ==
 
-= **What's different with this compared to other plugins?** =
+= What's different with this plugin compared to the others? =
 
 I encourage (actually, highly recommend) you to browse the source code and see it for yourself.
 
-TL;DR: Other plugins don't work.
+TL;DR: Other plugins don't work correctly.
 
-= **What's the goal?** =
+= What's the goal? =
 
 The goal is to update the code of this plugin until (hopefully) WordPress removes the emojis feature from its core.
 
 == Changelog ==
 
+= 1.1.0 =
+* Tested up to v6.7.
+* Update readme.txt.
+* Tackle (potential) naming collision problem.
+* Uses short array syntax.
+
+
 = 1.0.1 =
 * Fix some naming convention for clarity.
-* Update to readme.txt
+* Update readme.txt.
 
 = 1.0.0 =
 * Initial release.
-
-== Upgrade Notice ==
-
-Learn more about [updating plugins](https://wordpress.org/documentation/article/manage-plugins/#updating-plugins).
