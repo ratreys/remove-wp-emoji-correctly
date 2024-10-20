@@ -1,0 +1,7 @@
+# The owner will be the default owner for everything in the repo. Unless a later match takes precedence, @selftawt, as primary maintainers will be requested for review when someone opens a Pull Request.
+*                   @selftawt
+
+# GitHub and WordPress.org specifics
+/.github/           @selftawt
+/.wordpress-org/    @selftawt
+LICENSE.md          @selftawt
