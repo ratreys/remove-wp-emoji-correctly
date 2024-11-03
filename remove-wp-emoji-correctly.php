@@ -93,7 +93,7 @@ final class Remove_WPEmojis {
 if ( is_admin() ) {
     add_action( 'admin_init', [ '\Selftawt_Plugin\Remove_WPEmojis', 'admin_init' ] );
 }  else {
-    add_action( 'init', [ '\Selftawt_Plugin\Remove_WPEmojis', 'init' ] );
+    add_action( 'init',       [ '\Selftawt_Plugin\Remove_WPEmojis', 'init' ] );
 }
 
 endif;
