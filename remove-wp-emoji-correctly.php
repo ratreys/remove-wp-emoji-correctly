@@ -11,7 +11,7 @@
  * License:           GPL-3.0
  */
 
-namespace Selftawt\Plugin;
+namespace Selftawt_Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -20,17 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Default filters are found at wp-includes/default-filters.php
  * 
- * @link https://core.trac.wordpress.org/browser/tags/6.4/src/wp-includes/default-filters.php
- * @link https://core.trac.wordpress.org/browser/tags/6.7/src/wp-includes/default-filters.php
- * 
  * We no longer need to manually remove emoji_svg_url prefetch from wp_resource_hints since it's no longer
  * included by default.
  * 
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
-if ( ! class_exists( '\Selftawt\Plugin\Remove_WP_Emojis_Correctly' ) ) :
-final class Remove_WP_Emojis_Correctly {
+if ( ! class_exists( '\Selftawt_Plugin\Remove_WPEmojis' ) ) :
+final class Remove_WPEmojis {
 
     private static $instance = null;
     
@@ -94,9 +91,9 @@ final class Remove_WP_Emojis_Correctly {
 }
 
 if ( is_admin() ) {
-    add_action( 'admin_init', [ '\Selftawt\Plugin\Remove_WP_Emojis_Correctly', 'admin_init' ] );
+    add_action( 'admin_init', [ '\Selftawt_Plugin\Remove_WPEmojis', 'admin_init' ] );
 }  else {
-    add_action( 'init', [ '\Selftawt\Plugin\Remove_WP_Emojis_Correctly', 'init' ] );
+    add_action( 'init', [ '\Selftawt_Plugin\Remove_WPEmojis', 'init' ] );
 }
 
 endif;
