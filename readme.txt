@@ -18,11 +18,11 @@ This is the RIGHT WAY to remove or disable the WordPress emojis feature that was
 
 Make your header clean, lean, and mean.
 
-Emojis support is now so widespread that this feature should no longer belong to WordPress core — and certainly not on every page of every WordPress site.
+Emoji support is now so widespread that this feature should no longer belong to the WordPress core — and certainly not on every page of every WordPress site.
+
+But I noticed that other plugins don't completely work, so that's [why I created this plugin](https://selftawt.com/disable-wpemoji-correctly/).
 
 Simply activate this plugin to completely — and correctly — remove the built-in support for emojis that was added in WordPress v4.2.
-
-Here is [why I created this plugin](https://selftawt.com/disable-wpemoji-correctly/).
 
 **Features**
 
