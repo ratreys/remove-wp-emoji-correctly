@@ -4,14 +4,14 @@
  * Plugin URI:        https://selftawt.com/disable-wpemoji-correctly
  * Description:       The right way to remove or disable emoji support that was added in WordPress v4.2. Make your header clean, lean, and mean.
  * Version:           1.1.0
- * Requires at least: 6.4
+ * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            Rey Sanchez
  * Author URI:        https://selftawt.com
  * License:           GPL-3.0
  */
 
-namespace Selftawt_Plugin;
+namespace Selftawt\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link https://core.trac.wordpress.org/changeset/53904
  * 
  */
-if ( ! class_exists( '\Selftawt_Plugin\Remove_WPEmojis' ) ) :
+if ( ! class_exists( '\Selftawt\Plugin\Remove_WPEmojis' ) ) :
 final class Remove_WPEmojis {
 
     private static $instance = null;
@@ -73,13 +73,6 @@ final class Remove_WPEmojis {
      * Please see line 421 of wp-includes/class-wp-editor.php
      * 
      * @param array $default_tiny_mce_plugins
-     * 
-     *      List of default TinyMCE plugins:
-     * 
-     *      'wptextpattern', 'wpautoresize', 'colorpicker', 'wpeditimage', 'fullscreen', 'textcolor',
-     *      'wordpress',     'wpgallery',    'wpdialogs',   'tabfocus',    'charmap',    'wpemoji',
-     *      'wplink',        'wpview',       'lists',       'media',       'paste',      'hr',
-     * 
     */
     public static function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
         if ( is_array( $default_tiny_mce_plugins ) && in_array( 'wpemoji', $default_tiny_mce_plugins, true ) ) {
@@ -91,9 +84,9 @@ final class Remove_WPEmojis {
 }
 
 if ( is_admin() ) {
-    add_action( 'admin_init', [ '\Selftawt_Plugin\Remove_WPEmojis', 'admin_init' ] );
+    add_action( 'admin_init', [ '\Selftawt\Plugin\Remove_WPEmojis', 'admin_init' ] );
 }  else {
-    add_action( 'init',       [ '\Selftawt_Plugin\Remove_WPEmojis', 'init' ] );
+    add_action( 'init',       [ '\Selftawt\Plugin\Remove_WPEmojis', 'init' ] );
 }
 
 endif;
