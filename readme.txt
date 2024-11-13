@@ -6,7 +6,7 @@ Author:             Rey Sanchez
 Author URI:         https://selftawt.com
 Contributors:       selftawt
 Tags:               emojis, wpemojis, disable, disable emojis, disable wpemojis
-Requires at least:  6.4
+Requires at least:  6.5
 Tested up to:       6.7
 Stable tag:         1.1.0
 Requires PHP:       7.4
@@ -46,11 +46,10 @@ The goal is to update the code of this plugin until (hopefully) WordPress remove
 == Changelog ==
 
 = 1.1.0 =
-* Tested up to v6.7.
-* Update readme.txt.
+* Bump Wordpress "tested up to" version 6.7.
 * Tackle (potential) naming collision problem.
 * Uses short array syntax.
-
+* Update readme.txt.
 
 = 1.0.1 =
 * Fix some naming convention for clarity.
