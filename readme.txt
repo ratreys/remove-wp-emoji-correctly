@@ -7,7 +7,7 @@ Author URI:         https://selftawt.com
 Contributors:       selftawt
 Tags:               emojis, wpemojis, disable, disable emojis, disable wpemojis
 Requires at least:  6.5
-Tested up to:       6.7
+Tested up to:       6.8
 Stable tag:         1.1.0
 Requires PHP:       7.4
 License:            GPL-3.0
@@ -44,6 +44,9 @@ TL;DR: Other plugins don't work correctly.
 The goal is to update the code of this plugin until (hopefully) WordPress removes the emojis feature from its core.
 
 == Changelog ==
+
+= 1.1.1 =
+* Bump Wordpress "tested up to" version 6.8.
 
 = 1.1.0 =
 * Bump Wordpress "tested up to" version 6.7.
