@@ -1,18 +1,18 @@
 === Remove WP Emojis — Correctly ===
 
 Plugin Name:        Remove WP Emojis — Correctly
-Plugin URI:         https://selftawt.com/disable-wpemoji-correctly
+Plugin URI:         https://selftawt.com/disable-wpemoji-correctly/
 Author:             Rey Sanchez
-Author URI:         https://selftawt.com
+Author URI:         https://selftawt.com/about/
 Contributors:       selftawt
+Stable tag:         1.1.2
 Tags:               emojis, wpemojis, disable, disable emojis, disable wpemojis
 Requires at least:  6.5
-Tested up to:       6.8
-Stable tag:         1.1.1
+Tested up to:       6.9
 Requires PHP:       7.4
-License:            GPL-3.0
+License:            GPL-3.0-or-later
 
-This is the RIGHT WAY to remove or disable the WordPress emojis feature that was added in v4.2.
+This is the CORRECT WAY to remove or disable the WordPress emojis feature that was added in v4.2.
 
 == Description ==
 
