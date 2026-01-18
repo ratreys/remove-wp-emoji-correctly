@@ -45,6 +45,10 @@ The goal is to update the code of this plugin until (hopefully) WordPress remove
 
 == Changelog ==
 
+= 1.1.2 =
+* Bump Wordpress "tested up to" version 6.9.
+* Refactored version for clarity, correct hook usage, and leaner structure.
+
 = 1.1.1 =
 * Bump Wordpress "tested up to" version 6.8.
 
