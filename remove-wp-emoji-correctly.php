@@ -2,16 +2,17 @@
 /**
  * Plugin Name:       Remove WP Emojis — Correctly
  * Plugin URI:        https://selftawt.com/disable-wpemoji-correctly
- * Description:       The right way to remove or disable emoji support that was added in WordPress v4.2. Make your header clean, lean, and mean.
- * Version:           1.1.1
+ * Description:       The correct way to remove or disable emoji support that was added in WordPress v4.2. Make your header clean, lean, and mean.
+ * Author:            Rey Sanchez
+ * Author URI:        https://selftawt.com/about/
+ * Version:           1.1.2
  * Requires at least: 6.5
  * Requires PHP:      7.4
- * Author:            Rey Sanchez
- * Author URI:        https://selftawt.com
- * License:           GPL-3.0
+ * License:           GPL-3.0-or-later
+ * License URI:       https://spdx.org/licenses/GPL-3.0-or-later.html
  */
 
-namespace Selftawt\Plugin;
+namespace Remove_WP_Emoji_Correctly;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -25,68 +26,56 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 
  * @link https://core.trac.wordpress.org/changeset/53904
  */
-if ( ! class_exists( '\Selftawt\Plugin\Remove_WPEmojis' ) ) :
-	final class Remove_WPEmojis {
+final class Remove_WPEmojis {
 
-		private static $instance = null;
-	
-		/** Make sure there's only one instance of the class. */
-		public static function instance() {
-			if ( null === self::$instance ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
+	public static function disable_emojis_frontend(): void {
+		/** Actions. */
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards compatibility.
 
-		/** Private constructor to prevent direct instantiation. */
-		private function __construct() {
-			/** There is nothing here. */ }
+		/** Prevent conversion of emoji to a static img element. */
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
-		public static function init() {
-			/** Actions. */
-			remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-			remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
-			remove_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards compatibility.
-
-			/** Prevent conversion of emoji to a static img element. */
-			remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-			remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-			remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-
-			/** Embeds. */
-			remove_action( 'embed_head', 'print_emoji_detection_script' );
-			remove_action( 'enqueue_embed_scripts', 'wp_enqueue_emoji_styles' );
-		}
-
-		public static function admin_init() {
-			/** Actions. */
-			remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-			remove_action( 'admin_enqueue_scripts', 'wp_enqueue_emoji_styles' );
-			remove_action( 'admin_print_styles', 'print_emoji_styles' ); // Retained for backwards compatibility.
-
-			/** For those using classic editor. */
-			add_filter( 'tiny_mce_plugins', [ __CLASS__, 'remove_wpemoji_plugin' ] );
-		}
-
-		/**
-		 * Remove the default 'wpemoji' plugin inside TinyMCE editor.
-		 * Please see line 421 of wp-includes/class-wp-editor.php
-		 * 
-		 * @param array $default_tiny_mce_plugins
-		 */
-		public static function remove_wpemoji_plugin( $default_tiny_mce_plugins ) {
-			if ( is_array( $default_tiny_mce_plugins ) && in_array( 'wpemoji', $default_tiny_mce_plugins, true ) ) {
-				return array_diff( $default_tiny_mce_plugins, [ 'wpemoji' ] );
-			}
-
-			return $default_tiny_mce_plugins;
-		}
+		/** Embeds. */
+		remove_action( 'embed_head', 'print_emoji_detection_script' );
+		remove_action( 'enqueue_embed_scripts', 'wp_enqueue_emoji_styles' );
 	}
 
-	if ( is_admin() ) {
-		add_action( 'admin_init', [ '\Selftawt\Plugin\Remove_WPEmojis', 'admin_init' ] );
-	} else {
-		add_action( 'init', [ '\Selftawt\Plugin\Remove_WPEmojis', 'init' ] );
+	public static function disable_emojis_loggedin(): void {
+		/** Actions. */
+		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action( 'admin_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+		remove_action( 'admin_print_styles', 'print_emoji_styles' ); // Retained for backwards compatibility.
+
+		/** For those using classic editor. */
+		add_filter( 'tiny_mce_plugins', [ __CLASS__, 'disable_emojis_tinymce' ] );
 	}
 
-endif;
+	/**
+	 * Remove the 'wpemoji' plugin inside TinyMCE editor.
+	 * Please see line 421 of wp-includes/class-wp-editor.php
+	 * 
+	 * @param array $tinymce_plugins
+	 */
+	public static function disable_emojis_tinymce( $tinymce_plugins ): array {
+
+		if ( ! is_array( $tinymce_plugins ) ) {
+			return $tinymce_plugins;
+		}
+
+		return array_diff( $tinymce_plugins, [ 'wpemoji' ] );
+	}
+
+	public static function load(): void {
+		if ( is_admin() ) {
+			add_action( 'admin_init', [ __CLASS__, 'disable_emojis_loggedin' ] );
+		} else {
+			add_action( 'init', [ __CLASS__, 'disable_emojis_frontend' ] );
+		}
+	}
+}
+
+Remove_WPEmojis::load();
